@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>りんりん日和 — Little Cycling Adventure</title>
+  <!-- Self-contained: works without a base URL or companion assets. -->
+  <style>
+:root{font-family:'Noto Sans JP',system-ui,sans-serif;color:#284d47;background:#faf9f3;font-synthesis:none}*{box-sizing:border-box}body{margin:0}.app{max-width:1144px;margin:auto;padding:30px 32px 24px}header{display:flex;justify-content:space-between;align-items:center}.brand{display:flex;gap:10px;align-items:center;color:#284d47;text-decoration:none;font-size:12px;font-weight:900;letter-spacing:1.6px}.brand-icon{font-size:31px;color:#f49b83}.edition{font-size:9px;letter-spacing:2px;color:#8b9d94}.intro{text-align:center;padding:43px 0 30px}.eyebrow{font-size:11px;letter-spacing:2px;font-weight:700;color:#6b9682}h1{font-size:48px;letter-spacing:4px;margin:8px 0 10px;font-weight:900}h1 span{color:#ef9c78}.intro p{font-size:12px;color:#7a9088;letter-spacing:1px}.game-shell{border:1px solid #dde6d9;border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 10px 35px #34584208}.dashboard{display:flex;justify-content:space-between;align-items:center;padding:17px 26px}.trail{display:flex;align-items:center;gap:9px;font-size:12px;font-weight:700}.live-dot{width:7px;height:7px;background:#72bda3;border-radius:50%}.trail-tag{font-size:8px;letter-spacing:1px;color:#8aa195;background:#f0f5ed;border-radius:4px;padding:5px 7px;margin-left:6px}.scores{display:flex;gap:28px}.scores>div{display:flex;flex-direction:column;min-width:76px}.score-label{font-size:8px;letter-spacing:1.4px;color:#83968c;font-weight:700}.scores strong{font-size:25px;font-variant-numeric:tabular-nums;line-height:1.35}.scores small{font-size:11px;font-weight:500;color:#96a59a}.best{border-left:1px solid #e7ece3;padding-left:26px}.best strong{color:#94a78c;font-size:22px}.stage{position:relative;background:#def1eb;touch-action:manipulation}canvas{display:block;width:100%;height:auto}.scene-label{position:absolute;top:20px;left:24px;font-size:10px;color:#749c8d;letter-spacing:1px}.overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:#e6f3e630}.overlay[hidden]{display:none}.overlay-card{text-align:center;padding:23px 34px 19px;background:#fffdf5ed;border:1px solid #fff;border-radius:22px;box-shadow:0 12px 40px #456d5310;max-width:92%}.card-flower{display:block;color:#e9ac66;font-size:29px;margin-bottom:4px}.overlay-card .eyebrow{font-size:8px;display:block}.overlay-card h2{font-size:22px;margin:10px 0;color:#355d4e}.overlay-card p{font-size:11px;line-height:1.9;color:#8a9b8d;margin:0 0 17px}button{font:inherit;cursor:pointer}#start{background:#386d59;border:0;color:#fffdf2;padding:13px 21px;border-radius:10px;font-size:11px;font-weight:700;box-shadow:0 4px 0 #285643}#start:hover{background:#49846c}#start span{margin-left:22px}.sub-hint{display:block;font-size:8px;color:#9ca99b;margin-top:12px}.game-footer{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;font-size:10px;color:#89998b;gap:10px}kbd{display:inline-block;padding:4px 9px;border:1px solid #dce3d6;border-bottom-width:3px;border-radius:5px;font:700 8px system-ui;color:#678168;margin-right:5px}i{font-style:normal;color:#d0d9ca;margin:0 8px}#status{color:#7e9c76;font-size:10px}#restart{border:0;background:#f1f5eb;color:#6b8567;padding:8px 12px;border-radius:7px;font-size:10px}.tips{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin:28px 25px 0}.tips>div{display:flex;gap:13px;align-items:center}.tip-icon{width:37px;height:37px;display:grid;place-items:center;border-radius:12px;font-size:23px;flex-shrink:0}.mint{background:#e5efe5;color:#78a18a}.peach{background:#f8e7dd;color:#db9878}.yellow{background:#f7f0d5;color:#c7b26d}.tips p{margin:0}.tips strong,.tips p span{display:block;font-size:11px}.tips p span{font-size:9px;color:#9aa598;margin-top:5px}footer{display:flex;justify-content:space-between;margin-top:38px;border-top:1px solid #e7eadf;padding-top:18px;color:#a5afa0;font-size:9px}footer span{font-size:8px;letter-spacing:1.6px}button:focus-visible,a:focus-visible{outline:3px solid #eaa768;outline-offset:4px}@media(max-width:650px){.app{padding:20px 14px}.edition{display:none}.intro{padding:28px 0 20px}h1{font-size:34px}.intro p{font-size:10px;line-height:1.8}.dashboard{padding:12px}.trail{font-size:10px}.trail-tag{display:none}.scores{gap:12px}.scores strong{font-size:20px}.scores>div{min-width:55px}.best{padding-left:12px}.score-label{font-size:6px}.stage{height:350px}canvas{height:100%;object-fit:fill}.scene-label{left:13px;top:13px;font-size:8px}.overlay-card{padding:18px 23px}.overlay-card h2{font-size:19px}.game-footer{padding:12px;font-size:8px;flex-wrap:wrap}#status{display:none}.tips{grid-template-columns:1fr;gap:17px;margin:23px 10px}.tips p span{font-size:10px}footer{margin-top:25px}footer span{display:none}}
+  </style>
+</head>
+<body>
+  <main class="app">
+    <header><a class="brand" href="#game"><span class="brand-icon">✿</span> SUNNY SIDE GAMES</a><span class="edition">A LITTLE OUTDOOR ADVENTURE</span></header>
+    <section class="intro"><div class="eyebrow">のんびり気分で、どこまでも。</div><h1>りんりん日和<span>。</span></h1><p>風にのって、ぴょんとこえて。きみだけのサイクリングへ。</p></section>
+    <section class="game-shell" aria-label="自転車ジャンプゲーム">
+      <div class="dashboard"><div class="trail"><span class="live-dot"></span> おひさまロード <span class="trail-tag">FREE RIDE</span></div><div class="scores"><div><span class="score-label">DISTANCE</span><strong><span id="score">0</span><small> m</small></strong></div><div class="best"><span class="score-label">BEST RECORD</span><strong><span id="best">0</span><small> m</small></strong></div></div></div>
+      <div class="stage" id="stage"><canvas id="game" tabindex="0" width="1000" height="480" aria-label="スペースキーまたは画面タップでジャンプし、障害物を避けて進むゲーム"></canvas><div class="scene-label">☀ きょうも、いいお天気。</div><div class="overlay" id="overlay"><div class="overlay-card"><span class="card-flower">✿</span><span class="eyebrow" id="overlay-label">LET’S TAKE A RIDE</span><h2 id="overlay-title">小さな冒険、はじめよう。</h2><p id="overlay-description">石やコーンをジャンプでこえて<br>どこまで走れるかな？</p><button id="start" type="button">サイクリングをはじめる <span>→</span></button><span class="sub-hint">スペースキーでもスタート</span></div></div></div>
+      <div class="game-footer"><span><kbd>SPACE</kbd> でジャンプ <i>／</i> 画面タップでも OK</span><span id="status" role="status" aria-live="polite">準備はいい？</span><button id="restart" type="button" aria-label="ゲームをリスタート">↻ <span>リスタート</span></button></div>
+    </section>
+    <section class="tips" aria-label="遊び方"><div><span class="tip-icon mint">→</span><p><strong>ペダルはおまかせ</strong><span>自転車は自動で走るよ。</span></p></div><div><span class="tip-icon peach">↑</span><p><strong>タイミングよくジャンプ</strong><span>障害物をふわっと飛びこえよう。</span></p></div><div><span class="tip-icon yellow">★</span><p><strong>めざせ、自己ベスト</strong><span>走った距離がスコアになるよ。</span></p></div></section>
+    <footer>ちょっとひと息、ちょっと冒険。<span>MADE FOR SUNNY MOMENTS ✿</span></footer>
+  </main>
+  <noscript>このゲームにはJavaScriptが必要です。JavaScriptを許可したブラウザで開いてください。</noscript>
+  <script>
+'use strict';
+(() => {
+  const canvas = document.querySelector('#game');
+  const ctx = canvas.getContext('2d');
+  function resize() { canvas.width = window.innerWidth <= 650 ? 600 : 1000; }
+  resize();
+  window.addEventListener('resize', resize);
+  const scoreEl = document.querySelector('#score');
+  const bestEl = document.querySelector('#best');
+  const overlay = document.querySelector('#overlay');
+  const status = document.querySelector('#status');
+  const ground = 382;
+  let state = 'ready', distance = 0, travel = 0, speed = 275, last = 0, spawn = 0;
+  let obstacles = [], particles = [], best = 0;
+  const rider = { x: 205, y: 0, vy: 0 };
+  try { best = Number(localStorage.getItem('rinrin-best')) || 0; } catch {}
+  bestEl.textContent = best;
+  function start() {
+    state = 'playing'; distance = 0; travel = 0; speed = 275; spawn = 1.7;
+    rider.y = 0; rider.vy = 0; obstacles = []; particles = [];
+    scoreEl.textContent = '0'; overlay.hidden = true; status.textContent = 'いい調子！そのまま進もう。';
+    last = performance.now();
+    canvas.focus({ preventScroll: true });
+  }
+  function jump() {
+    if (state !== 'playing') { start(); return; }
+    if (rider.y === 0) {
+      rider.vy = -650;
+      for (let i = 0; i < 7; i++) particles.push({ x: rider.x - 15, y: ground, vx: -40 - Math.random()*80, vy: -Math.random()*70, life: .5 });
+    }
+  }
+  function gameOver() {
+    state = 'over';
+    const record = Math.floor(distance);
+    const newBest = record > best;
+    if (newBest) { best = record; try { localStorage.setItem('rinrin-best', String(best)); } catch {} }
+    bestEl.textContent = best;
+    document.querySelector('#overlay-label').textContent = newBest ? 'NEW PERSONAL BEST!' : 'NICE LITTLE ADVENTURE';
+    document.querySelector('#overlay-title').textContent = 'また、走りにいこう。';
+    document.querySelector('#overlay-description').textContent = `今回の記録は ${record} m！ ${newBest ? '自己ベスト更新！' : '次はもっと遠くまで。'}`;
+    document.querySelector('#start').innerHTML = 'もういちど走る <span>↻</span>';
+    overlay.hidden = false; status.textContent = 'ゲームオーバー';
+  }
+  document.querySelector('#start').addEventListener('click', start);
+  document.querySelector('#restart').addEventListener('click', start);
+  document.addEventListener('keydown', e => {
+    if (e.code !== 'Space' || e.target.closest('a, input, textarea, [contenteditable]')) return;
+    e.preventDefault();
+    if (!e.repeat) jump();
+  });
+  canvas.addEventListener('pointerdown', e => { e.preventDefault(); jump(); });
+  document.addEventListener('visibilitychange', () => { last = performance.now(); });
+  function ellipse(x,y,rx,ry,color) { ctx.fillStyle=color;ctx.beginPath();ctx.ellipse(x,y,rx,ry,0,0,Math.PI*2);ctx.fill(); }
+  function line(points,color,width=3) {ctx.strokeStyle=color;ctx.lineWidth=width;ctx.lineCap='round';ctx.lineJoin='round';ctx.beginPath();points.forEach((p,i)=>i?ctx.lineTo(...p):ctx.moveTo(...p));ctx.stroke();}
+  function cloud(x,y,s) {ctx.save();ctx.translate(x,y);ctx.scale(s,s);ellipse(0,0,33,13,'#fffdf4');ellipse(-15,-7,18,15,'#fffdf4');ellipse(10,-13,22,20,'#fffdf4');ctx.restore();}
+  function tree(x,y,s) {ctx.save();ctx.translate(x,y);ctx.scale(s,s);line([[0,0],[0,-65]],'#abc5a0',7);ellipse(-15,-70,27,32,'#b3d5ac');ellipse(12,-88,31,37,'#b3d5ac');ellipse(26,-59,26,29,'#b3d5ac');ctx.restore();}
+  function scenery() {
+    ctx.fillStyle='#def0e9';ctx.fillRect(0,0,1000,480);
+    ellipse(827,81,35,35,'#f7da84');ellipse(827,81,47,47,'#f7da8420');
+    for(let i=0;i<5;i++) cloud(((i*268+70-travel*.055)%1340+1340)%1340-100,75+i%3*32,.7+i%2*.25);
+    ctx.fillStyle='#c5ddbd';ctx.beginPath();ctx.moveTo(0,300);for(let x=0;x<=1000;x+=10)ctx.lineTo(x,250+Math.sin((x+travel*.12)/190)*38);ctx.lineTo(1000,390);ctx.lineTo(0,390);ctx.fill();
+    ctx.fillStyle='#afcfa9';ctx.beginPath();ctx.moveTo(0,340);for(let x=0;x<=1000;x+=10)ctx.lineTo(x,300+Math.sin((x+travel*.22)/145)*30);ctx.lineTo(1000,400);ctx.lineTo(0,400);ctx.fill();
+    for(let i=0;i<6;i++) tree(((i*250+70-travel*.35)%1500+1500)%1500-100,355,.65+i%2*.2);
+    ctx.fillStyle='#d4e5b8';ctx.fillRect(0,350,1000,130);
+    for(let i=0;i<22;i++) {const x=((i*59-travel*.7)%1300+1300)%1300;line([[x,365],[x-3,358]],'#a8c98e',2);}
+    ctx.fillStyle='#f5dfb5';ctx.fillRect(0,ground+3,1000,63);ctx.fillStyle='#e9cca0';ctx.fillRect(0,ground+3,1000,4);
+    for(let i=0;i<23;i++){let x=((i*63-travel)%1450+1450)%1450;ellipse(x,410+i%3*9,3,1.3,'#d9bf95');}
+    ctx.fillStyle='#c4d9a1';ctx.fillRect(0,445,1000,35);
+    for(let i=0;i<15;i++){let x=((i*83+30-travel*.85)%1250+1250)%1250;line([[x,469],[x,455]],'#91b67e',2);for(let a=0;a<5;a++)ellipse(x+Math.cos(a*1.257)*4,453+Math.sin(a*1.257)*4,3,3,i%2?'#fff8e7':'#f2aa91');ellipse(x,453,2,2,'#e3c567');}
+  }
+  function bicycle() {
+    const y=ground+rider.y;
+    ellipse(rider.x,y+4,49,5,'#526a4720');
+    ctx.save();ctx.translate(rider.x,y);
+    const wheel=(x)=>{ellipse(x,-23,22,22,'#fff9e5');ctx.strokeStyle='#48675e';ctx.lineWidth=4;ctx.beginPath();ctx.arc(x,-23,22,0,Math.PI*2);ctx.stroke();for(let i=0;i<8;i++){let a=i*Math.PI/4+travel/22;line([[x,-23],[x+Math.cos(a)*19,-23+Math.sin(a)*19]],'#b2c0ac',1);}ellipse(x,-23,3,3,'#45685c');};
+    wheel(-36);wheel(38);
+    line([[-36,-23],[-15,-59],[8,-23],[-36,-23],[-5,-48],[30,-48],[8,-23]],'#df8d72',5);
+    line([[38,-23],[27,-65],[37,-69]],'#547467',4);line([[-18,-63],[-4,-63]],'#48675e',5);
+    // Rider: striped shirt, little helmet, and a scarf fluttering in the wind.
+    line([[-9,-65],[9,-47],[-1,-30]],'#536d6a',9);line([[-1,-30],[8,-30]],'#fff9e8',6);
+    line([[-13,-92],[-13,-67]],'#edb86c',21);line([[-22,-82],[-5,-82]],'#fff1ca',4);
+    line([[-7,-88],[11,-70],[28,-66]],'#f1c4a0',7);
+    ctx.fillStyle='#ef9e87';ctx.beginPath();ctx.moveTo(-21,-96);ctx.lineTo(-50,-92+Math.sin(travel/35)*3);ctx.lineTo(-38,-84);ctx.lineTo(-18,-90);ctx.fill();
+    ellipse(-9,-111,14,16,'#f1c4a0');ellipse(-13,-119,16,9,'#628d75');ctx.fillStyle='#628d75';ctx.fillRect(-29,-119,30,6);line([[-27,-112],[-4,-112]],'#628d75',3);ellipse(-1,-110,1.6,1.6,'#405f52');ellipse(0,-104,3,2,'#e8a08b');
+    ctx.restore();
+  }
+  function obstacle(o) {
+    ctx.save();ctx.translate(o.x,ground);ellipse(0,3,o.w/2+6,4,'#60774520');
+    if(o.type==='cone'){ctx.fillStyle='#eea07e';ctx.beginPath();ctx.moveTo(-o.w/2,0);ctx.lineTo(-7,-o.h);ctx.quadraticCurveTo(0,-o.h-7,7,-o.h);ctx.lineTo(o.w/2,0);ctx.fill();ctx.fillStyle='#fff3d6';ctx.fillRect(-11,-24,22,8);line([[-23,0],[23,0]],'#d88867',6);}
+    else {ctx.fillStyle='#91a49a';ctx.beginPath();ctx.moveTo(-o.w/2,0);ctx.lineTo(-o.w/2+3,-o.h*.65);ctx.quadraticCurveTo(-5,-o.h-10,12,-o.h*.8);ctx.lineTo(o.w/2,0);ctx.closePath();ctx.fill();line([[-9,-o.h*.6],[1,-o.h*.75],[8,-o.h*.6]],'#b9c6b8',3);}
+    ctx.restore();
+  }
+  function update(dt) {
+    if(state!=='playing')return;
+    speed=Math.min(445,275+distance*.18);travel+=speed*dt;distance+=speed*dt/18;scoreEl.textContent=Math.floor(distance);
+    rider.vy+=1750*dt;rider.y+=rider.vy*dt;
+    if(rider.y>=0){rider.y=0;rider.vy=0;}
+    spawn-=dt;
+    if(spawn<=0){const cone=Math.random()>.45;obstacles.push({x:1050,w:cone?34:42,h:cone?43:30,type:cone?'cone':'rock'});spawn=1.35+Math.random()*.65;}
+    for(const o of obstacles){o.x-=speed*dt;
+      if(rider.x+47>o.x-o.w/2+5 && rider.x-54<o.x+o.w/2-5 && ground+rider.y-3>ground-o.h+5){gameOver();break;}}
+    obstacles=obstacles.filter(o=>o.x>-60);
+    for(const p of particles){p.x+=p.vx*dt;p.y+=p.vy*dt;p.life-=dt;}particles=particles.filter(p=>p.life>0);
+  }
+  function frame(now) {
+    const elapsed=Math.min((now-last)/1000||0, .05);last=now;
+    // Small steps keep collision detection reliable even on slower displays.
+    let remaining=elapsed;while(remaining>0){const dt=Math.min(remaining,1/120);update(dt);remaining-=dt;}
+    scenery();for(const p of particles)ellipse(p.x,p.y,3*p.life,3*p.life,'#fff7de');for(const o of obstacles)obstacle(o);bicycle();requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+  </script>
+</body>
+</html>
